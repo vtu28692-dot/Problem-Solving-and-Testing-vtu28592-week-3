@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
+        int n = scan.nextInt();
+        ArrayList<ArrayList<Integer>> lines = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            int d = scan.nextInt();
+            ArrayList<Integer> line = new ArrayList<>();
+            for (int j = 0; j < d; j++) {
+                line.add(scan.nextInt());
+            }
+            lines.add(line);
+        }
+
+        int q = scan.nextInt();
+        for (int i = 0; i < q; i++) {
+            int x = scan.nextInt();
+            int y = scan.nextInt();
+
+            // Convert 1-based indexing to 0-based indexing
+            int lineIndex = x - 1;
+            int elementIndex = y - 1;
+
+            if (lineIndex < lines.size() && elementIndex < lines.get(lineIndex).size()) {
+                System.out.println(lines.get(lineIndex).get(elementIndex));
+            } else {
+                System.out.println("ERROR!");
+            }
+        }
+
+        scan.close();
+    }
+}
